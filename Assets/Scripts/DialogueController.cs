@@ -110,6 +110,7 @@ public class DialogueController : MonoBehaviour
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE;
                 break;
         }
+        StartNextDialogueBox();
     }
 
     public void StartNextDialogueBox()

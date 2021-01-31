@@ -65,11 +65,19 @@ public class RoomController : MonoBehaviour
         }
     }
 
-    public void ReportSpiritBattleFinished(SpiritBattleType aBattleType)
+    public void ReportSpiritBattleFinished(SpiritBattleType aBattleType, bool is_victory)
     {
         switch (aBattleType)
         {
-            case SpiritBattleType.IDOL_CD_WITH_FAMILY:
+            case SpiritBattleType.IDOL_CD:
+            Debug.Log("Fight");
+                if(is_victory){
+                    Debug.Log("Win");
+                    DialogueController.Instance.StartConvo(ConvoType.IDOL_DIALOGUE);
+                }
+                else{
+                    DialogueController.Instance.StartConvo(ConvoType.IDOL_FAILURE);
+                }
                 break;
         }
     }

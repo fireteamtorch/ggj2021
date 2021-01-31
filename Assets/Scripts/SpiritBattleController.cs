@@ -48,6 +48,11 @@ public class SpiritBattleController : MonoBehaviour
 
     public void StartSpiritBattle(SpiritBattleType aBattleType)
     {
+        if(spawnedSpiritBattle != null){
+            Destroy(spawnedSpiritBattle);
+            spawnedSpiritBattle = null;
+        }
+        
         spawnedSpiritBattle = Instantiate(GetSpiritBattlePrefab(aBattleType), Vector3.zero, Quaternion.identity);
         spawnedSpiritBattle.transform.parent = spawnAnchor.transform;
         isSpiritBattleActive = true;
@@ -78,10 +83,16 @@ public class SpiritBattleController : MonoBehaviour
     public void PlayerSuccess()
     {
         Debug.Log("Hoorayyyyyyyyyyy");
+        isSpiritBattleActive = false;
+        SpiritMaskAnimator.SetTrigger("hide");
+        RoomController.Instance.ReportSpiritBattleFinished(activeBattle,true);
     }
 
     public void PlayerDied()
     {
         Debug.Log("HECKIN' BIG SAD");
+        isSpiritBattleActive = false;
+        SpiritMaskAnimator.SetTrigger("hide");
+        RoomController.Instance.ReportSpiritBattleFinished(activeBattle,false);
     }
 }
