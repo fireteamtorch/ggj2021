@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Febucci.UI;
 
-public enum DialogueSlide { NONE, C1_HELLO, C1_HOWSITGOING, C1_GOODBYE}
+public enum DialogueSlide { NONE, C1_HELLO, C1_HOWSITGOING, C1_GOODBYE, C2_WHATKNIFE}
 
 public class DialogueController : MonoBehaviour
 {
-    public int nextSlideID;
     public TextAnimatorPlayer dialoguePlayer;
-
+    public int nextSlideID;
     public bool isTextBoxReadyForNewText;
 
     public void Update()
@@ -46,11 +45,11 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.C1_GOODBYE:
                 dialoguePlayer.ShowText("Cya");
-                nextSlideID = -1;
+                nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
             default:
-                nextSlideID = -1;
+                nextSlideID = (int)DialogueSlide.NONE;
                 break;
         }
     }
