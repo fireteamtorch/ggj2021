@@ -179,6 +179,11 @@ public class DialogueController : MonoBehaviour
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
+            case DialogueSlide.IDOL_FAILURE:
+                dialoguePlayer.ShowText("You've got the wrong idea. I wasn't doing this for the reasons you think.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+                
             case DialogueSlide.PHOTO_DESCRIPTION:
                 dialoguePlayer.ShowText("Description about her family");
                 nextSlideID = (int)DialogueSlide.NONE;
