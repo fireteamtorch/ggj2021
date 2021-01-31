@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dfa0d35f81457c047b340962d5896ea1, type: 3}
+    - target: {fileID: 3204787695481510763, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661859103671941504, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8069236397436080676, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.36
@@ -96,6 +108,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8070734205202474264, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Size.x
+      value: 4.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
 --- !u!4 &9071561080941388343 stripped
@@ -110,6 +126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480827852889363656}
     m_Modifications:
+    - target: {fileID: 1039179114934213894, guid: a59feb8a22c2e3040bbf1ecfeda29627, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1039179114934213895, guid: a59feb8a22c2e3040bbf1ecfeda29627, type: 3}
       propertyPath: m_Name
       value: GhostSpirit
@@ -216,6 +236,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 750749199740800903, guid: 6e1835be2cd594841b39dda3a1db18bb, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 750749199740800920, guid: 6e1835be2cd594841b39dda3a1db18bb, type: 3}
       propertyPath: m_Name
       value: PlayerSpirit
@@ -239,6 +263,18 @@ PrefabInstance:
       value: AttackDistance (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b093740e32794641a304776ae4db547, type: 3}
+    - target: {fileID: 3204787695481510763, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661859103671941504, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
@@ -286,6 +322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8070734205202474264, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Size.x
+      value: 2.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
 --- !u!4 &2763688573374654860 stripped
@@ -305,6 +345,18 @@ PrefabInstance:
       value: AttackDistance (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 427264ad525bffa4ab8844464e36a2a8, type: 3}
+    - target: {fileID: 3204787695481510763, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661859103671941504, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
@@ -352,6 +404,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8070734205202474264, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Size.x
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070734205202474264, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
 --- !u!4 &2406017390027474629 stripped
@@ -376,6 +436,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2988771880273745529, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204787695481510763, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661859103671941504, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8069236397436080676, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
@@ -436,11 +504,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480827852889363656}
     m_Modifications:
+    - target: {fileID: 373244902910317277, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2298101979826837903, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
       propertyPath: m_Name
       value: AttackHome
       objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204787695481510763, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661859103671941504, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7190071964485034445, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210832645381597331, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
@@ -499,6 +587,10 @@ PrefabInstance:
     - target: {fileID: 8069236397436080676, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.60228163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641935646390742383, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffb69b68ed5659449c14ccb7a5c9ecd, type: 3}
