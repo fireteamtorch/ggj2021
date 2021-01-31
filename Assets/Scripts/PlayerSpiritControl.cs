@@ -32,4 +32,16 @@ public class PlayerSpiritControl : MonoBehaviour
             this.transform.position += new Vector3(inputVector.x, inputVector.y, 0f) * (moveSpeed * Time.deltaTime);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other_object){
+        //Ghost
+        if(other_object.gameObject.CompareTag("Ghost")){
+            SpiritBattleController.Instance.PlayerSuccess();
+        }
+        
+        //Weapon
+        if(other_object.gameObject.CompareTag("Kill")){
+            SpiritBattleController.Instance.PlayerDied();
+        }
+    }
 }

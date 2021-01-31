@@ -77,11 +77,11 @@ public class SpiritBattleController : MonoBehaviour
 
     public void PlayerSuccess()
     {
-
+        Debug.Log("Hoorayyyyyyyyyyy");
     }
 
     public void PlayerDied()
     {
-
+        Debug.Log("HECKIN' BIG SAD");
     }
 }
