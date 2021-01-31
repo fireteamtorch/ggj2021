@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Febucci.UI;
+using TMPro;
+using UnityEngine.UI;
 
 public enum ConvoType
 {
@@ -90,6 +92,8 @@ public class DialogueController : MonoBehaviour
 
     public GameObject continueButton;
     public ConvoType activeConvo;
+    public TextMeshProUGUI speakerLabel;
+    public Image speakerImage;   
 
     private void Awake()
     {
@@ -257,7 +261,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE:
-                dialoguePlayer.ShowText("This is photo of me and my sister [NAME]. It's just been the two of us, for so long. She's growing up so fast now...");
+                dialoguePlayer.ShowText("This is photo of me and my sister, Yuu. It's just been the two of us, for so long. She's growing up so fast now...");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_2;
                 break;
 
@@ -322,7 +326,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_5:
-                dialoguePlayer.ShowText("Even after I started my career, [SISTER] and I used to play Potatoville together every night.");
+                dialoguePlayer.ShowText("Even after I started my career, Yuu and I used to play Potatoville together every night.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_6;
                 break;
 
@@ -387,7 +391,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.FINAL_PUZZLE_7:
-                dialoguePlayer.ShowText("- so that I could give [SISTER] a better life.");
+                dialoguePlayer.ShowText("- so that I could give Yuu a better life.");
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_8;
                 break;
 
@@ -452,7 +456,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.ENDING_PROTAGONIST:
-                dialoguePlayer.ShowText("<Ghost's name> thought she had lost her way. That she placed her career over her family.");
+                dialoguePlayer.ShowText("Rei thought she had lost her way. That she placed her career over her family.");
                 nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST_2;
                 break;
 
@@ -473,6 +477,38 @@ public class DialogueController : MonoBehaviour
 
             default:
                 nextSlideID = (int)DialogueSlide.NONE;
+                break;
+        }
+    }
+
+    public void SetSpeakerLabel(DialogueSpeaker aSpeaker)
+    {
+        switch (aSpeaker)
+        {
+            case DialogueSpeaker.GHOST:
+                speakerLabel.text = "Rei";
+                break;
+
+            case DialogueSpeaker.PROTAGONIST:
+                speakerLabel.text = "Spirit Detective";
+                break;
+
+            case DialogueSpeaker.NARRATOR:
+                speakerLabel.text = "";
+                break;
+        }
+    }
+
+    public void SetSpeakerSprite(DialogueSpeaker aSpeaker)
+    {
+        switch (aSpeaker)
+        {
+            case DialogueSpeaker.GHOST:
+                speakerImage.gameObject.SetActive(true);
+                break;
+
+            default:
+                speakerImage.gameObject.SetActive(false);
                 break;
         }
     }
