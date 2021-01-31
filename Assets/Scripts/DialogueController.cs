@@ -20,6 +20,10 @@ public enum DialogueSlide {
     IDOL_DIALOGUE_4,
     IDOL_DIALOGUE_5,
     IDOL_DIALOGUE_6,
+    IDOL_DIALOGUE_7,
+    IDOL_DIALOGUE_8,
+    IDOL_DIALOGUE_9,
+    IDOL_DIALOGUE_10,
     IDOL_FAILURE,
     PHOTO_DESCRIPTION,
     PHOTO_DIALOGUE,
@@ -27,6 +31,9 @@ public enum DialogueSlide {
     PHOTO_DIALOGUE_3,
     PHOTO_DIALOGUE_4,
     PHOTO_DIALOGUE_5,
+    PHOTO_DIALOGUE_6,
+    PHOTO_DIALOGUE_7,
+    PHOTO_FAILURE,
     GAME_DESCRIPTION,
     GAME_DIALOGUE,
     GAME_DIALOGUE_2,
@@ -35,9 +42,22 @@ public enum DialogueSlide {
     GAME_DIALOGUE_5,
     GAME_DIALOGUE_6,
     GAME_DIALOGUE_7,
+    GAME_DIALOGUE_8,
+    GAME_FAILURE,
     POTATO_DESCRIPTION,
     POTATO_DIALOGUE,
     POTATO_DIALOGUE_2,
+    FINAL_PUZZLE,
+    FINAL_PUZZLE_2,
+    FINAL_PUZZLE_3,
+    FINAL_PUZZLE_4,
+    FINAL_PUZZLE_5,
+    FINAL_PUZZLE_6,
+    FINAL_PUZZLE_7,
+    FINAL_PUZZLE_8,
+    FINAL_PUZZLE_9,
+    FINAL_PUZZLE_10,
+    FINAL_PUZZLE_11,
     SPIRIT_BATTLE_WIN,
     SPIRIT_BATTLE_LOSE,
     ENDING_GHOST,
@@ -154,32 +174,52 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE:
-                dialoguePlayer.ShowText("You... want my signature? A photo? What do you want? Everyone always wants something from me!");
+                dialoguePlayer.ShowText("This was my second solo album.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_2;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_2:
-                dialoguePlayer.ShowText("I don't have time for that! I just... I don't have time for much nowadays.");
+                dialoguePlayer.ShowText(" It one got all the way up to #3 on the billboards, and my idol career really took off after this.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_3;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_3:
-                dialoguePlayer.ShowText("Concerts, interviews, sponsorships... emm what else, right, appearance fees, fashion line...");
+                dialoguePlayer.ShowText("After all of my hard work, I felt like I'd finally made it.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_4;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_4:
-                dialoguePlayer.ShowText("I tried to send her to the most expensive private school, but she told me she didn't want to go!");
+                dialoguePlayer.ShowText("Do you think I was living a glamorous life? Maybe it seemed like that to you.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_5;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_5:
-                dialoguePlayer.ShowText("I told her she was ungrateful, but now, I think I understand.");
+                dialoguePlayer.ShowText("I always had to put on my happy face, but in reality I was barely keeping it together.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_6;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_6:
-                dialoguePlayer.ShowText("I think she just didn't want me to have to work so much... I wish I could tell her that.");
+                dialoguePlayer.ShowText("Every day was just one obligation after another. Meetings with agents, fan signings, interviews, concerts.");
+                nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_7;
+                break;
+
+            case DialogueSlide.IDOL_DIALOGUE_7:
+                dialoguePlayer.ShowText("Everyone always wanted something from me.");
+                nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_8;
+                break;
+
+            case DialogueSlide.IDOL_DIALOGUE_8:
+                dialoguePlayer.ShowText("I felt like I was living someone else's life, with no time for myself or people I cared about anymore.");
+                nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_9;
+                break;
+
+            case DialogueSlide.IDOL_DIALOGUE_9:
+                dialoguePlayer.ShowText("Maybe you think I became an idol for the attention, or the money.");
+                nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_10;
+                break;
+
+            case DialogueSlide.IDOL_DIALOGUE_10:
+                dialoguePlayer.ShowText("But I really just wanted to provide a better life for my sister. She had always been my biggest fan. If only I had...");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -194,27 +234,42 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE:
-                dialoguePlayer.ShowText("It's just me and my little sister. She's growing so fast. Hey, if you ever see her, can you tell her... nevermind.");
+                dialoguePlayer.ShowText("This is photo of me and my sister [NAME]. It's just been the two of us, for so long. She's growing up so fast now...");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_2;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE_2:
-                dialoguePlayer.ShowText("We used to watch our favorite movies together, and sing along with the characters. That's how I started singing.");
+                dialoguePlayer.ShowText("When we were younger, we always used to watch all of the idol concerts on TV and sing along.");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_3;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE_3:
-                dialoguePlayer.ShowText("We moved out of our tiny apartment, but I had to live away from her.");
+                dialoguePlayer.ShowText("That's where I first discovered my talent for singing. She always believed that I could be an idol one day.");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_4;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE_4:
-                dialoguePlayer.ShowText("There was so much unwanted attention that came with the stardom, and I didn't want anything to happen to her.");
+                dialoguePlayer.ShowText("After I made it as an idol, I had to move out on my own, away from her.");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_5;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE_5:
-                dialoguePlayer.ShowText("Maybe someday she'll understand, when she is older.");
+                dialoguePlayer.ShowText("There was so much unwanted attention that came with my new life, and I didn't want anything to happen to her.");
+                nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_6;
+                break;
+
+            case DialogueSlide.PHOTO_DIALOGUE_6:
+                dialoguePlayer.ShowText("I think she resented me for it at the time, but...maybe she'll understand now.");
+                nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_7;
+                break;
+
+            case DialogueSlide.PHOTO_DIALOGUE_7:
+                dialoguePlayer.ShowText("Hey...if you ever get a chance to see my sister, can you tell her - ah, never mind.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
+            case DialogueSlide.PHOTO_FAILURE:
+                dialoguePlayer.ShowText("Sorry...I don't want to talk about her.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -224,37 +279,47 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.GAME_DIALOGUE:
-                dialoguePlayer.ShowText("We used to play Potatoville together all the time.");
+                dialoguePlayer.ShowText("It's Potatoville. Brings back memories...");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_2;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_2:
-                dialoguePlayer.ShowText("I would go to my sister's farm to water her garden, or catch rare butterflies with her.");
+                dialoguePlayer.ShowText("We didn't have a lot of money growing up, but I saved up from my part-time job and bought a PlayBox 2.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_3;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_3:
-                dialoguePlayer.ShowText("I used to play every day, but I logged on one day to see my garden wilted away.");
+                dialoguePlayer.ShowText("When my sister was a little girl, she would sit next to me and cheer me on as I played.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_4;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_4:
-                dialoguePlayer.ShowText("I didn't even realize it had been more than a week since I...");
+                dialoguePlayer.ShowText("Whenever I won, she would do a little dance and scream 'we won' as she ran around the room.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_5;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_5:
-                dialoguePlayer.ShowText("When she was just a little girl, she would sit next to me, lean against my side,");
+                dialoguePlayer.ShowText("Even after I started my career, [SISTER] and I used to play Potatoville together every night.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_6;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_6:
-                dialoguePlayer.ShowText("and cheer me on as I played different games.");
+                dialoguePlayer.ShowText("I would go to my sister's farm to water her garden, or catch rare butterflies with her.");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_7;
                 break;
 
             case DialogueSlide.GAME_DIALOGUE_7:
-                dialoguePlayer.ShowText("Whenever I won, she would do a little dance. She would always scream 'we won' as she ran around the room.");
+                dialoguePlayer.ShowText("But then I stopped having time. I logged on one day to see that my garden had wilted away.");
+                nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_8;
+                break;
+
+            case DialogueSlide.GAME_DIALOGUE_8:
+                dialoguePlayer.ShowText("I didn't even realize it had been months since I...");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
+            case DialogueSlide.GAME_FAILURE:
+                dialoguePlayer.ShowText("I don't see why we need to disuss this...");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -265,6 +330,61 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.POTATO_DIALOGUE_2:
                 dialoguePlayer.ShowText("At least she is safe... I didn't take her with me anywhere with me anymore, and that kept her safe.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE:
+                dialoguePlayer.ShowText("My sister and I used to argue about what private school she should go to.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_2;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_2:
+                dialoguePlayer.ShowText("I tried to send her to the most expensive one, but she told me she didn't want to go!");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_3;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_3:
+                dialoguePlayer.ShowText("I told her she was ungrateful, but I think I understand now.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_4;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_4:
+                dialoguePlayer.ShowText("I think she saw how stressed I was, and didn't want me to work so much.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_5;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_5:
+                dialoguePlayer.ShowText("I wish I could take my words back...");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_6;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_6:
+                dialoguePlayer.ShowText("I used to think that everything was worth it - all the work, stress, and isolation");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_7;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_7:
+                dialoguePlayer.ShowText("- so that I could give [SISTER] a better life.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_8;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_8:
+                dialoguePlayer.ShowText("Looking back, I wish I could have just spent that time with my sister instead.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_9;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_9:
+                dialoguePlayer.ShowText("I was so focused on doing what I thought would be best for her that I lost sight of what was really important.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_10;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_10:
+                dialoguePlayer.ShowText("I don't know who you are, but thank you for listening.");
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_11;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_11:
+                dialoguePlayer.ShowText("I feel at peace now, talking things through with you. I think... I can finally rest.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
