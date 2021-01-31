@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8070734205202474264}
   m_Layer: 8
   m_Name: Knife
-  m_TagString: Ghost
+  m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
