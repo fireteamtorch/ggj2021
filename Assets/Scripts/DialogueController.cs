@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Febucci.UI;
 
+public enum ConvoType
+{
+    IDOL_DESCRIPTION,
+    IDOL_DIALOGUE,
+    IDOL_FAILURE,
+    PHOTO_DESCRIPTION
+}
+
 public enum DialogueSlide {
     NONE,
     IDOL_DESCRIPTION,
@@ -12,6 +20,7 @@ public enum DialogueSlide {
     IDOL_DIALOGUE_4,
     IDOL_DIALOGUE_5,
     IDOL_DIALOGUE_6,
+    IDOL_FAILURE,
     PHOTO_DESCRIPTION,
     PHOTO_DIALOGUE,
     PHOTO_DIALOGUE_2,
@@ -40,12 +49,14 @@ public enum DialogueSlide {
     ENDING_PROTAGONIST_3,
     ENDING_PROTAGONIST_4,
     HELLO,
-    GOODBYE
+    GOODBYE,
+    SHOCKED
 };
 public enum DialogueSpeaker { NARRATOR, PROTAGONIST, GHOST };
 
 public class DialogueController : MonoBehaviour
 {
+    public static DialogueController Instance;
     public TextAnimatorPlayer dialoguePlayer;
     public int nextSlideID;
     public bool isTextBoxReadyForNewText;
@@ -53,6 +64,12 @@ public class DialogueController : MonoBehaviour
     public bool hasUIAnimated;
 
     public GameObject continueButton;
+    public ConvoType activeConvo;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void Update()
     {
@@ -79,6 +96,22 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    public void StartConvo(ConvoType aConvo)
+    {
+        activeConvo = aConvo;
+        isTextBoxReadyForNewText = true;
+        switch (aConvo)
+        {
+            case ConvoType.IDOL_DESCRIPTION:
+                nextSlideID = (int)DialogueSlide.IDOL_DESCRIPTION;
+                break;
+
+            case ConvoType.IDOL_DIALOGUE:
+                nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE;
+                break;
+        }
+    }
+
     public void StartNextDialogueBox()
     {
         if (!hasUIAnimated)
@@ -97,6 +130,7 @@ public class DialogueController : MonoBehaviour
         isTextBoxReadyForNewText = false;
         dialogueUIAnimator.SetTrigger("hide");
         hasUIAnimated = false;
+        RoomController.Instance.ReportConvoFinished(activeConvo);
     }
 
     public void ReportDialogueBoxFinished()

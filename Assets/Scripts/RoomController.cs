@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+    public static RoomController Instance;
     public bool isAcceptingRoomButtons;
-    public bool hasKnifeBeenChecked;
 
+    public bool hasIdolCDBeenChecked;
+    public bool hasFamilyPhotoBeenChecked;
+
+    public DialogueController dialogueCtrl;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -26,21 +35,42 @@ public class RoomController : MonoBehaviour
             switch (aButtonType)
             {
                 case RoomButtonType.IDOL_CD:
-                    if (!hasKnifeBeenChecked)
+                    DialogueController.Instance.StartConvo(ConvoType.IDOL_DESCRIPTION);
+                    /*
+                    if (!hasFamilyPhotoBeenChecked)
                     {
                         // DIALOGUE FOR KNIFE DESCRIPT HERE
-                        hasKnifeBeenChecked = true;
+                        
                     }
                     else
                     {
                         // DIALOGUE FOR KNIFE REVEAL
-                    }
+                    }*/
 
                     break;
 
                 default:
                     break;
             }
+        }
+    }
+
+    public void ReportConvoFinished(ConvoType convo)
+    {
+        switch (convo)
+        {
+            case ConvoType.IDOL_DESCRIPTION:
+                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.IDOL_CD);
+                break;
+        }
+    }
+
+    public void ReportSpiritBattleFinished(SpiritBattleType aBattleType)
+    {
+        switch (aBattleType)
+        {
+            case SpiritBattleType.IDOL_CD_WITH_FAMILY:
+                break;
         }
     }
 }

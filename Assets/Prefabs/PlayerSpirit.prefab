@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750749199740800902}
   - component: {fileID: 750749199740800903}
+  - component: {fileID: 7873931408098152810}
   m_Layer: 8
   m_Name: PlayerSpirit
   m_TagString: Untagged
@@ -82,3 +83,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7873931408098152810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750749199740800920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e486e79b4757ee441b71ea1b14fa9517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
