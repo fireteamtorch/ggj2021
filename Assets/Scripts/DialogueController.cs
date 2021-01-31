@@ -105,10 +105,13 @@ public class DialogueController : MonoBehaviour
             case ConvoType.IDOL_DESCRIPTION:
                 nextSlideID = (int)DialogueSlide.IDOL_DESCRIPTION;
                 break;
-
             case ConvoType.IDOL_DIALOGUE:
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE;
                 break;
+            case ConvoType.IDOL_FAILURE:
+                nextSlideID = (int)DialogueSlide.IDOL_FAILURE;
+                break;
+
         }
         StartNextDialogueBox();
     }
