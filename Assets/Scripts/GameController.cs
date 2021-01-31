@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Febucci.UI;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public string tempString;
+
     void Start()
     {
-        
+        tempString = "Testing dialogue string for the charcter text and wrapping and run on sentences.";
+        //dialoguePlayer.ShowText(tempString);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+       
+    }
+
+    public void ReportDialogueFinished()
+    {
+        Debug.Log("Dialogue done");
     }
 }
