@@ -15,7 +15,12 @@ public enum ConvoType
     PHOTO_FAILURE,
     GAME_DESCRIPTION,
     GAME_DIALOGUE,
-    GAME_FAILURE
+    GAME_FAILURE,
+    FINAL_QUESTION_NOTREADY,
+    FINAL_QUESTION_READY,
+    FINAL_QUESTION_DIALOGUE,
+    FINAL_QUESTION_FAILURE,
+    ENDING_START
 }
 
 public enum DialogueSlide {
@@ -54,6 +59,8 @@ public enum DialogueSlide {
     POTATO_DESCRIPTION,
     POTATO_DIALOGUE,
     POTATO_DIALOGUE_2,
+    FINAL_PUZZLE_NOTREADY,
+    FINAL_PUZZLE_READY,
     FINAL_PUZZLE,
     FINAL_PUZZLE_2,
     FINAL_PUZZLE_3,
@@ -65,6 +72,7 @@ public enum DialogueSlide {
     FINAL_PUZZLE_9,
     FINAL_PUZZLE_10,
     FINAL_PUZZLE_11,
+    FINAL_BATTLE_FAILURE,
     SPIRIT_BATTLE_WIN,
     SPIRIT_BATTLE_LOSE,
     ENDING_GHOST,
@@ -159,6 +167,22 @@ public class DialogueController : MonoBehaviour
                 nextSlideID = (int)DialogueSlide.GAME_FAILURE;
                 break;
 
+            case ConvoType.FINAL_QUESTION_DIALOGUE:
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE;
+                break;
+            case ConvoType.FINAL_QUESTION_NOTREADY:
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_NOTREADY;
+                break;
+            case ConvoType.FINAL_QUESTION_READY:
+                nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_READY;
+                break;
+            case ConvoType.FINAL_QUESTION_FAILURE:
+                nextSlideID = (int)DialogueSlide.FINAL_BATTLE_FAILURE;
+                break;
+
+            case ConvoType.ENDING_START:
+                nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST;
+                break;
         }
         StartNextDialogueBox();
     }
@@ -261,7 +285,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE:
-                dialoguePlayer.ShowText("This is photo of me and my sister, Yuu. It's just been the two of us, for so long. She's growing up so fast now...");
+                dialoguePlayer.ShowText("This is a photo of our family. It's just been me and my sister Yuu for so long. She's growing up so fast now...");
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_2;
                 break;
 
@@ -360,6 +384,16 @@ public class DialogueController : MonoBehaviour
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
+            case DialogueSlide.FINAL_PUZZLE_NOTREADY:
+                dialoguePlayer.ShowText("My last regret? ...You don't know enough about my suffering.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
+            case DialogueSlide.FINAL_PUZZLE_READY:
+                dialoguePlayer.ShowText("My regret? ...Maybe you know enough now to see.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
             case DialogueSlide.FINAL_PUZZLE:
                 dialoguePlayer.ShowText("My sister and I used to argue about what private school she should go to.");
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_2;
@@ -407,11 +441,17 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.FINAL_PUZZLE_10:
                 dialoguePlayer.ShowText("I don't know who you are, but thank you for listening.");
+                // set happy
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_11;
                 break;
 
             case DialogueSlide.FINAL_PUZZLE_11:
                 dialoguePlayer.ShowText("I feel at peace now, talking things through with you. I think... I can finally rest.");
+                nextSlideID = (int)DialogueSlide.NONE;
+                break;
+
+            case DialogueSlide.FINAL_BATTLE_FAILURE:
+                dialoguePlayer.ShowText("I've told you so much...");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -434,7 +474,7 @@ public class DialogueController : MonoBehaviour
                 dialoguePlayer.ShowText("BYE!");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
-
+                /*
             case DialogueSlide.ENDING_GHOST:
                 dialoguePlayer.ShowText("I spread myself too thin, worked too much.");
                 nextSlideID = (int)DialogueSlide.ENDING_GHOST_2;
@@ -454,9 +494,12 @@ public class DialogueController : MonoBehaviour
                 dialoguePlayer.ShowText("For some reason, I feel at peace. As if I can finally go to sleep...");
                 nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST;
                 break;
+                */
 
             case DialogueSlide.ENDING_PROTAGONIST:
                 dialoguePlayer.ShowText("Rei thought she had lost her way. That she placed her career over her family.");
+                SetSpeakerLabel(DialogueSpeaker.PROTAGONIST);
+                SetSpeakerSprite(DialogueSpeaker.PROTAGONIST);
                 nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST_2;
                 break;
 

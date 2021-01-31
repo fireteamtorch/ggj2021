@@ -68,6 +68,16 @@ public class RoomController : MonoBehaviour
                     }
                     break;
 
+                case RoomButtonType.FINAL_QUESTION:
+                    if (hasFinishedSB_FamilyPhoto && hasFinishedSB_IdolCD && hasFinishedSB_VideoGameConsole) {
+                        DialogueController.Instance.StartConvo(ConvoType.FINAL_QUESTION_READY);
+                    }
+                    else
+                    {
+                        DialogueController.Instance.StartConvo(ConvoType.FINAL_QUESTION_NOTREADY);
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -81,7 +91,7 @@ public class RoomController : MonoBehaviour
             case ConvoType.IDOL_DESCRIPTION:
 
                 hasIdolCDBeenChecked = true;
-                if (hasFamilyPhotoBeenChecked)
+                if (hasFinishedSB_FamilyPhoto)
                 {
                     SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.IDOL_CD_WITH_FAMILY);
                 }
@@ -100,7 +110,23 @@ public class RoomController : MonoBehaviour
                 hasVideoGameBeenChecked = true;
                 SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.VIDEO_GAME);
                 break;
-              
+
+            case ConvoType.FINAL_QUESTION_NOTREADY:
+                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.FINAL_BATTLE_NOTREADY);
+                break;
+
+            case ConvoType.FINAL_QUESTION_READY:
+                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.FINAL_BATTLE_READY);
+                break;
+
+            case ConvoType.FINAL_QUESTION_DIALOGUE:
+                DialogueController.Instance.StartConvo(ConvoType.ENDING_START);
+                break;
+
+            case ConvoType.ENDING_START:
+                // THE GAME IS OVER fade ot black
+               
+                break;
 
             default:
                 break;
@@ -151,6 +177,21 @@ public class RoomController : MonoBehaviour
                 else
                 {
                     DialogueController.Instance.StartConvo(ConvoType.GAME_FAILURE);
+                }
+                break;
+
+            case SpiritBattleType.FINAL_BATTLE_NOTREADY:
+                DialogueController.Instance.StartConvo(ConvoType.FINAL_QUESTION_FAILURE);
+                break;
+
+            case SpiritBattleType.FINAL_BATTLE_READY:
+                if (is_victory)
+                {
+                    DialogueController.Instance.StartConvo(ConvoType.FINAL_QUESTION_DIALOGUE);
+                }
+                else
+                {
+                    DialogueController.Instance.StartConvo(ConvoType.FINAL_QUESTION_FAILURE);
                 }
                 break;
         }

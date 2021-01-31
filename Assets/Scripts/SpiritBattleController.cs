@@ -8,7 +8,9 @@ public enum SpiritBattleType {
     IDOL_CD_WITH_FAMILY,
     FAMILY_PHOTO,
     VIDEO_GAME,
-    POTATO
+    POTATO,
+    FINAL_BATTLE_NOTREADY,
+    FINAL_BATTLE_READY
 }
 
 public class SpiritBattleController : MonoBehaviour
