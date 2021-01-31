@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RoomButtonType {  NONE, KNIFE, SHEATH, BLOOD, DOORKNOB}
+public enum RoomButtonType {  NONE, IDOL_CD, FAMILY_PHOTO, VIDEO_GAME, POTATO}
 
 public class ClickableButton : MonoBehaviour
 {

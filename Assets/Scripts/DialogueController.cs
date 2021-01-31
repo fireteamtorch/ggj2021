@@ -23,23 +23,54 @@ public class DialogueController : MonoBehaviour
     public TextAnimatorPlayer dialoguePlayer;
     public int nextSlideID;
     public bool isTextBoxReadyForNewText;
+    public Animator dialogueUIAnimator;
+    public bool hasUIAnimated;
+
+    public GameObject continueButton;
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isTextBoxReadyForNewText && Input.GetMouseButtonDown(0))
         {
-            if (isTextBoxReadyForNewText && nextSlideID > 0)
+            if(nextSlideID == (int)DialogueSlide.NONE)
+            {
+                //Close the dialogue
+                CloseDialogueUI();
+            }else if (nextSlideID > 0)
             {
                 StartNextDialogueBox();
             }
+        }
+
+        if(isTextBoxReadyForNewText && !continueButton.activeSelf)
+        {
+            continueButton.SetActive(true);
+        }
+
+        if (!isTextBoxReadyForNewText && continueButton.activeSelf)
+        {
+            continueButton.SetActive(false);
         }
     }
 
     public void StartNextDialogueBox()
     {
+        if (!hasUIAnimated)
+        {
+            hasUIAnimated = true;
+            dialogueUIAnimator.SetTrigger("show");
+        }
+
         isTextBoxReadyForNewText = false;
         Debug.Log(nextSlideID);
         RunSlide((DialogueSlide)nextSlideID);
+    }
+
+    public void CloseDialogueUI()
+    {
+        isTextBoxReadyForNewText = false;
+        dialogueUIAnimator.SetTrigger("hide");
+        hasUIAnimated = false;
     }
 
     public void ReportDialogueBoxFinished()

@@ -25,7 +25,7 @@ public class RoomController : MonoBehaviour
             Debug.Log("Button: " + aButtonType.ToString());
             switch (aButtonType)
             {
-                case RoomButtonType.KNIFE:
+                case RoomButtonType.IDOL_CD:
                     if (!hasKnifeBeenChecked)
                     {
                         // DIALOGUE FOR KNIFE DESCRIPT HERE
