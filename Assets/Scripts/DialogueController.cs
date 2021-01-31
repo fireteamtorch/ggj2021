@@ -8,7 +8,12 @@ public enum ConvoType
     IDOL_DESCRIPTION,
     IDOL_DIALOGUE,
     IDOL_FAILURE,
-    PHOTO_DESCRIPTION
+    PHOTO_DESCRIPTION,
+    PHOTO_DIALOGUE,
+    PHOTO_FAILURE,
+    GAME_DESCRIPTION,
+    GAME_DIALOGUE,
+    GAME_FAILURE
 }
 
 public enum DialogueSlide {
@@ -130,6 +135,24 @@ public class DialogueController : MonoBehaviour
                 break;
             case ConvoType.IDOL_FAILURE:
                 nextSlideID = (int)DialogueSlide.IDOL_FAILURE;
+                break;
+            case ConvoType.PHOTO_DESCRIPTION:
+                nextSlideID = (int)DialogueSlide.PHOTO_DESCRIPTION;
+                break;
+            case ConvoType.PHOTO_DIALOGUE:
+                nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE;
+                break;
+            case ConvoType.PHOTO_FAILURE:
+                nextSlideID = (int)DialogueSlide.PHOTO_FAILURE;
+                break;
+            case ConvoType.GAME_DESCRIPTION:
+                nextSlideID = (int)DialogueSlide.GAME_DESCRIPTION;
+                break;
+            case ConvoType.GAME_DIALOGUE:
+                nextSlideID = (int)DialogueSlide.GAME_DIALOGUE;
+                break;
+            case ConvoType.GAME_FAILURE:
+                nextSlideID = (int)DialogueSlide.GAME_FAILURE;
                 break;
 
         }
