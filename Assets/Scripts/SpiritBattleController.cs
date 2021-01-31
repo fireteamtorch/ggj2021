@@ -38,9 +38,6 @@ public class SpiritBattleController : MonoBehaviour
     {
         if (isSpiritBattleActive)
         {
-            //control the player character
-
-
 
             
         }
@@ -74,6 +71,8 @@ public class SpiritBattleController : MonoBehaviour
                 return SB_Potato;
             case SpiritBattleType.FAMILY_PHOTO:
                 return SB_FamilyPhoto;
+            case SpiritBattleType.VIDEO_GAME:
+                return SB_VideoGameConsole;
 
             default:
                 return null;
@@ -82,17 +81,23 @@ public class SpiritBattleController : MonoBehaviour
 
     public void PlayerSuccess()
     {
-        Debug.Log("Hoorayyyyyyyyyyy");
-        isSpiritBattleActive = false;
-        SpiritMaskAnimator.SetTrigger("hide");
-        RoomController.Instance.ReportSpiritBattleFinished(activeBattle,true);
+        if (isSpiritBattleActive)
+        {
+            Debug.Log("Hoorayyyyyyyyyyy");
+            isSpiritBattleActive = false;
+            SpiritMaskAnimator.SetTrigger("hide");
+            RoomController.Instance.ReportSpiritBattleFinished(activeBattle, true);
+        }
     }
 
     public void PlayerDied()
     {
-        Debug.Log("HECKIN' BIG SAD");
-        isSpiritBattleActive = false;
-        SpiritMaskAnimator.SetTrigger("hide");
-        RoomController.Instance.ReportSpiritBattleFinished(activeBattle,false);
+        if (isSpiritBattleActive)
+        {
+            Debug.Log("HECKIN' BIG SAD");
+            isSpiritBattleActive = false;
+            SpiritMaskAnimator.SetTrigger("hide");
+            RoomController.Instance.ReportSpiritBattleFinished(activeBattle, false);
+        }
     }
 }

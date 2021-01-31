@@ -9,6 +9,11 @@ public class RoomController : MonoBehaviour
 
     public bool hasIdolCDBeenChecked;
     public bool hasFamilyPhotoBeenChecked;
+    public bool hasVideoGameBeenChecked;
+
+    public bool hasFinishedSB_IdolCD;
+    public bool hasFinishedSB_FamilyPhoto;
+    public bool hasFinishedSB_VideoGameConsole;
 
     public DialogueController dialogueCtrl;
 
@@ -22,11 +27,6 @@ public class RoomController : MonoBehaviour
         isAcceptingRoomButtons = true;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void ReportRoomButtonPressed(RoomButtonType aButtonType)
     {
         if (isAcceptingRoomButtons)
@@ -35,18 +35,37 @@ public class RoomController : MonoBehaviour
             switch (aButtonType)
             {
                 case RoomButtonType.IDOL_CD:
-                    DialogueController.Instance.StartConvo(ConvoType.IDOL_DESCRIPTION);
-                    /*
-                    if (!hasFamilyPhotoBeenChecked)
+                    if (!hasFinishedSB_IdolCD)
                     {
-                        // DIALOGUE FOR KNIFE DESCRIPT HERE
-                        
+                        DialogueController.Instance.StartConvo(ConvoType.IDOL_DESCRIPTION);
                     }
                     else
                     {
-                        // DIALOGUE FOR KNIFE REVEAL
-                    }*/
+                        DialogueController.Instance.StartConvo(ConvoType.IDOL_DIALOGUE);
+                    }
 
+                    break;
+
+                case RoomButtonType.FAMILY_PHOTO:
+                    if (!hasFinishedSB_FamilyPhoto)
+                    {
+                        DialogueController.Instance.StartConvo(ConvoType.PHOTO_DESCRIPTION);
+                    }
+                    else
+                    {
+                        DialogueController.Instance.StartConvo(ConvoType.PHOTO_DIALOGUE);
+                    }
+                    break;
+
+                case RoomButtonType.VIDEO_GAME:
+                    if (!hasFinishedSB_VideoGameConsole)
+                    {
+                        DialogueController.Instance.StartConvo(ConvoType.GAME_DESCRIPTION);
+                    }
+                    else
+                    {
+                        DialogueController.Instance.StartConvo(ConvoType.GAME_DIALOGUE);
+                    }
                     break;
 
                 default:
@@ -60,7 +79,30 @@ public class RoomController : MonoBehaviour
         switch (convo)
         {
             case ConvoType.IDOL_DESCRIPTION:
-                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.IDOL_CD);
+
+                hasIdolCDBeenChecked = true;
+                if (hasFamilyPhotoBeenChecked)
+                {
+                    SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.IDOL_CD_WITH_FAMILY);
+                }
+                else
+                {
+                    SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.IDOL_CD);
+                }
+                break;
+
+            case ConvoType.PHOTO_DESCRIPTION:
+                hasFamilyPhotoBeenChecked = true;
+                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.FAMILY_PHOTO);
+                break;
+
+            case ConvoType.GAME_DESCRIPTION:
+                hasVideoGameBeenChecked = true;
+                SpiritBattleController.Instance.StartSpiritBattle(SpiritBattleType.VIDEO_GAME);
+                break;
+              
+
+            default:
                 break;
         }
     }
@@ -70,13 +112,45 @@ public class RoomController : MonoBehaviour
         switch (aBattleType)
         {
             case SpiritBattleType.IDOL_CD:
-            Debug.Log("Fight");
-                if(is_victory){
+            case SpiritBattleType.IDOL_CD_WITH_FAMILY:
+                Debug.Log("Fight idol cd");
+                if (is_victory)
+                {
                     Debug.Log("Win");
                     DialogueController.Instance.StartConvo(ConvoType.IDOL_DIALOGUE);
+                    hasFinishedSB_IdolCD = true;
                 }
-                else{
+                else
+                {
                     DialogueController.Instance.StartConvo(ConvoType.IDOL_FAILURE);
+                }
+                break;
+
+            case SpiritBattleType.FAMILY_PHOTO:
+                Debug.Log("Fight Family Photo");
+                if (is_victory)
+                {
+                    Debug.Log("Win");
+                    DialogueController.Instance.StartConvo(ConvoType.PHOTO_DIALOGUE);
+                    hasFinishedSB_FamilyPhoto = true;
+                }
+                else
+                {
+                    DialogueController.Instance.StartConvo(ConvoType.IDOL_FAILURE);
+                }
+                break;
+
+            case SpiritBattleType.VIDEO_GAME:
+                Debug.Log("Fight video game");
+                if (is_victory)
+                {
+                    Debug.Log("Win");
+                    DialogueController.Instance.StartConvo(ConvoType.GAME_DIALOGUE);
+                    hasFinishedSB_FamilyPhoto = true;
+                }
+                else
+                {
+                    DialogueController.Instance.StartConvo(ConvoType.GAME_FAILURE);
                 }
                 break;
         }

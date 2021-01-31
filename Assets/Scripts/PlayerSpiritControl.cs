@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpiritControl : MonoBehaviour
 {
     private Vector2 inputVector;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 3f;
 
     void Update()
     {

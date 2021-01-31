@@ -192,7 +192,7 @@ public class DialogueController : MonoBehaviour
         switch (aSlide)
         {
             case DialogueSlide.IDOL_DESCRIPTION:
-                dialoguePlayer.ShowText("Description for idol album");
+                dialoguePlayer.ShowText("Ahh...  I don't want to talk about that CD.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -252,7 +252,7 @@ public class DialogueController : MonoBehaviour
                 break;
                 
             case DialogueSlide.PHOTO_DESCRIPTION:
-                dialoguePlayer.ShowText("Description about her family");
+                dialoguePlayer.ShowText("It's our family photo... I don't want to look at it.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -297,7 +297,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.GAME_DESCRIPTION:
-                dialoguePlayer.ShowText("Description about the video game controller");
+                dialoguePlayer.ShowText("The PlayBox 2 is all dusty... I'd rather not talk about it.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 

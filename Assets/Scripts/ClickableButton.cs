@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RoomButtonType {  NONE, IDOL_CD, FAMILY_PHOTO, VIDEO_GAME, POTATO}
+public enum RoomButtonType {  NONE, IDOL_CD, FAMILY_PHOTO, VIDEO_GAME, POTATO, FINAL_QUESTION}
 
 public class ClickableButton : MonoBehaviour
 {
