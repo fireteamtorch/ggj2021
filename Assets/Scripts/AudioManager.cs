@@ -32,38 +32,45 @@ public class AudioManager : MonoBehaviour
         audioSad.Stop();
         audioSoft.Play();
         audioLoud.Play();
-        FocusAudioSoft();
+        // FocusAudioSoft();
     }
 
     // Update is called once per frame
     void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Debug.Log("Focus soft");
-            FocusAudioSoft();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Focus loud");
-            FocusAudioLoud();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("Focus sad");
-            StartAudioSad();
-        }
-        */
+    {
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    Debug.Log("Focus soft");
+        //    FocusAudioSoft();
+        //}
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Debug.Log("Focus loud");
+        //    FocusAudioLoud();
+        //}
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Debug.Log("Focus sad");
+        //    StartAudioSad();
+        //}
     }
 
     public void FocusAudioSoft()
     {
+        if (audioSad.isPlaying)
+        {
+            audioSad.Stop();
+        }
         StartCoroutine(StartFade(audioSoft, 1f, 1f));
         StartCoroutine(StartFade(audioLoud, 1f, 0f));
     }
 
     public void FocusAudioLoud()
     {
+        if (audioSad.isPlaying)
+        {
+            audioSad.Stop();
+        }
         StartCoroutine(StartFade(audioSoft, 1f, 0f));
         StartCoroutine(StartFade(audioLoud, 1f, 1f));
     }
@@ -72,6 +79,11 @@ public class AudioManager : MonoBehaviour
     {
         StartCoroutine(StartFade(audioSoft, 1f, 0f));
         StartCoroutine(StartFade(audioLoud, 1f, 0f));
+        if (audioSad.isPlaying)
+        {
+            audioSad.Stop();
+        }
+        audioSad.volume = 1f;
         audioSad.Play();
     }
 
