@@ -89,6 +89,7 @@ public enum DialogueSlide {
 };
 public enum DialogueSpeaker { NARRATOR, PROTAGONIST, GHOST , YUU };
 public enum SpeakerEmotion { NEUTRAL, SAD, HAPPY}
+public enum HiResItemType { NONE, IDOL_CD, VIDEO_GAME, FAMILY_PHOTO}
 
 public class DialogueController : MonoBehaviour
 {
@@ -107,6 +108,11 @@ public class DialogueController : MonoBehaviour
     public Sprite SpiritHappy;
     public Sprite SpiritSad;
 
+    [Header("Item Image")]
+    public Image itemImage;
+    public Sprite spriteFamilyPhoto;
+    public Sprite spriteIdolCD;
+    public Sprite spriteVideoGame;
 
     private void Awake()
     {
@@ -207,7 +213,7 @@ public class DialogueController : MonoBehaviour
             hasUIAnimated = true;
             dialogueUIAnimator.SetTrigger("show");
         }
-
+        ResetItemImage();
         isTextBoxReadyForNewText = false;
         Debug.Log(nextSlideID);
         RunSlide((DialogueSlide)nextSlideID);
@@ -231,6 +237,34 @@ public class DialogueController : MonoBehaviour
         isTextBoxReadyForNewText = true;
     }
 
+    public void ResetItemImage()
+    {
+        itemImage.gameObject.SetActive(false);
+        speakerImage.gameObject.SetActive(true);
+    }
+
+    public void SetItemImage(HiResItemType aItemType)
+    {
+        itemImage.sprite = GetHighResItemSprite(aItemType);
+        itemImage.gameObject.SetActive(true);
+        speakerImage.gameObject.SetActive(false);
+    }
+
+    public Sprite GetHighResItemSprite(HiResItemType aItemType)
+    {
+        switch (aItemType)
+        {
+            case HiResItemType.IDOL_CD:
+                return spriteIdolCD;
+            case HiResItemType.FAMILY_PHOTO:
+                return spriteFamilyPhoto;
+            case HiResItemType.VIDEO_GAME:
+                return spriteVideoGame;
+            default:
+                return null;
+        }
+    }
+
     public void RunSlide(DialogueSlide aSlide)
     {
         Debug.Log(aSlide);
@@ -238,6 +272,7 @@ public class DialogueController : MonoBehaviour
         {
             case DialogueSlide.IDOL_DESCRIPTION:
                 dialoguePlayer.ShowText("Ahh...  I don't want to talk about that CD.");
+                SetItemImage(HiResItemType.IDOL_CD);
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -248,7 +283,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_2:
-                dialoguePlayer.ShowText(" It one got all the way up to #3 on the billboards, and my idol career really took off after this.");
+                dialoguePlayer.ShowText("It got all the way up to #3 on the charts, and my idol career really took off after that.");
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_3;
                 break;
 
@@ -305,6 +340,7 @@ public class DialogueController : MonoBehaviour
             case DialogueSlide.PHOTO_DESCRIPTION:
                 dialoguePlayer.ShowText("It's our family photo... I don't want to look at it.");
                 SetSpeakerSprite(SpeakerEmotion.SAD);
+                SetItemImage(HiResItemType.FAMILY_PHOTO);
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -354,6 +390,7 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.GAME_DESCRIPTION:
                 dialoguePlayer.ShowText("The PlayBox 2 is all dusty... I'd rather not talk about it.");
+                SetItemImage(HiResItemType.VIDEO_GAME);
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 

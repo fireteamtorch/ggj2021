@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomController : MonoBehaviour
 {
@@ -127,7 +128,7 @@ public class RoomController : MonoBehaviour
 
             case ConvoType.ENDING_START:
                 // THE GAME IS OVER fade ot black
-               
+                StartDelayedTheEnd();
                 break;
 
             default:
@@ -145,6 +146,17 @@ public class RoomController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         DialogueController.Instance.StartConvo(aConvo);
+    }
+
+    public void StartDelayedTheEnd()
+    {
+        StartCoroutine(DelayedScene());
+    }
+
+    public IEnumerator DelayedScene()
+    {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene(2);
     }
 
     public void ReportSpiritBattleFinished(SpiritBattleType aBattleType, bool is_victory)

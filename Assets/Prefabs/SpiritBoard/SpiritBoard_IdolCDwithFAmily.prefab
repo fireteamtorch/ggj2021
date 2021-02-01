@@ -1121,6 +1121,18 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28627455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4673998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3204787695481510763, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -1227,6 +1239,18 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28627455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4673998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3204787695481510763, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -1331,6 +1355,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
       propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28627455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4673998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303162119288692190, guid: ad199aed5fcd60046affc3196684ab83, type: 3}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3204787695481510763, guid: ad199aed5fcd60046affc3196684ab83, type: 3}

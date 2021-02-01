@@ -38,6 +38,10 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         //if (Input.GetKeyDown(KeyCode.W))
         //{
         //    Debug.Log("Focus soft");
