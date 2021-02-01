@@ -88,6 +88,7 @@ public enum DialogueSlide {
     SHOCKED
 };
 public enum DialogueSpeaker { NARRATOR, PROTAGONIST, GHOST , YUU };
+public enum SpeakerEmotion { NEUTRAL, SAD, HAPPY}
 
 public class DialogueController : MonoBehaviour
 {
@@ -101,7 +102,11 @@ public class DialogueController : MonoBehaviour
     public GameObject continueButton;
     public ConvoType activeConvo;
     public TextMeshProUGUI speakerLabel;
-    public Image speakerImage;   
+    public Image speakerImage;
+    public Sprite SpiritNeutral;
+    public Sprite SpiritHappy;
+    public Sprite SpiritSad;
+
 
     private void Awake()
     {
@@ -137,6 +142,7 @@ public class DialogueController : MonoBehaviour
     {
         activeConvo = aConvo;
         isTextBoxReadyForNewText = true;
+        SetSpeakerSprite(SpeakerEmotion.SAD);
         switch (aConvo)
         {
             case ConvoType.IDOL_DESCRIPTION:
@@ -227,6 +233,7 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.IDOL_DIALOGUE:
                 dialoguePlayer.ShowText("This was my second solo album.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_2;
                 break;
 
@@ -237,26 +244,31 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.IDOL_DIALOGUE_3:
                 dialoguePlayer.ShowText("After all of my hard work, I felt like I'd finally made it.");
+                SetSpeakerSprite(SpeakerEmotion.HAPPY);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_4;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_4:
                 dialoguePlayer.ShowText("Do you think I was living a glamorous life? Maybe it seemed like that to you.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_5;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_5:
                 dialoguePlayer.ShowText("I always had to put on my happy face, but in reality I was barely keeping it together.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_6;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_6:
                 dialoguePlayer.ShowText("Every day was just one obligation after another. Meetings with agents, fan signings, interviews, concerts.");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_7;
                 break;
 
             case DialogueSlide.IDOL_DIALOGUE_7:
                 dialoguePlayer.ShowText("Everyone always wanted something from me.");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.IDOL_DIALOGUE_8;
                 break;
 
@@ -282,11 +294,13 @@ public class DialogueController : MonoBehaviour
                 
             case DialogueSlide.PHOTO_DESCRIPTION:
                 dialoguePlayer.ShowText("It's our family photo... I don't want to look at it.");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE:
                 dialoguePlayer.ShowText("This is a photo of our family. It's just been me and my sister Yuu for so long. She's growing up so fast now...");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_2;
                 break;
 
@@ -302,6 +316,7 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.PHOTO_DIALOGUE_4:
                 dialoguePlayer.ShowText("After I made it as an idol, I had to move out on my own, away from her.");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_5;
                 break;
 
@@ -312,11 +327,13 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.PHOTO_DIALOGUE_6:
                 dialoguePlayer.ShowText("I think she resented me for it at the time, but...maybe she'll understand now.");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.PHOTO_DIALOGUE_7;
                 break;
 
             case DialogueSlide.PHOTO_DIALOGUE_7:
                 dialoguePlayer.ShowText("Hey...if you ever get a chance to see my sister, can you tell her - ah, never mind.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -397,11 +414,13 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.FINAL_PUZZLE:
                 dialoguePlayer.ShowText("My sister and I used to argue about what private school she should go to.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_2;
                 break;
 
             case DialogueSlide.FINAL_PUZZLE_2:
                 dialoguePlayer.ShowText("I tried to send her to the most expensive one, but she told me she didn't want to go!");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_3;
                 break;
 
@@ -417,11 +436,13 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.FINAL_PUZZLE_5:
                 dialoguePlayer.ShowText("I wish I could take my words back...");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_6;
                 break;
 
             case DialogueSlide.FINAL_PUZZLE_6:
                 dialoguePlayer.ShowText("I used to think that everything was worth it - all the work, stress, and isolation");
+                SetSpeakerSprite(SpeakerEmotion.SAD);
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_7;
                 break;
 
@@ -432,6 +453,7 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.FINAL_PUZZLE_8:
                 dialoguePlayer.ShowText("Looking back, I wish I could have just spent that time with my sister instead.");
+                SetSpeakerSprite(SpeakerEmotion.NEUTRAL);
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_9;
                 break;
 
@@ -442,6 +464,7 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSlide.FINAL_PUZZLE_10:
                 dialoguePlayer.ShowText("I don't know who you are, but thank you for listening.");
+                SetSpeakerSprite(SpeakerEmotion.HAPPY);
                 // set happy
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE_11;
                 break;
@@ -545,6 +568,29 @@ public class DialogueController : MonoBehaviour
             case DialogueSpeaker.NARRATOR:
                 speakerLabel.text = "";
                 break;
+        }
+    }
+
+    public void SetSpeakerSprite(SpeakerEmotion aEmotion)
+    {
+        switch (aEmotion)
+        {
+            case SpeakerEmotion.HAPPY:
+                speakerImage.sprite = SpiritHappy;
+                break;
+
+            case SpeakerEmotion.SAD:
+                speakerImage.sprite = SpiritSad;
+                break;
+
+            case SpeakerEmotion.NEUTRAL:
+                speakerImage.sprite = SpiritNeutral;
+                break;
+
+            default:
+                speakerImage.sprite = SpiritNeutral;
+                break;
+
         }
     }
 
