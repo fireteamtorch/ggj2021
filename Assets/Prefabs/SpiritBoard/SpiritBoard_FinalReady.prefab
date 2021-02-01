@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2480827852889363656}
   m_Layer: 8
-  m_Name: SpiritBoard_Final
+  m_Name: SpiritBoard_FinalReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1039179114934213894, guid: a59feb8a22c2e3040bbf1ecfeda29627, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1039179114934213895, guid: a59feb8a22c2e3040bbf1ecfeda29627, type: 3}
       propertyPath: m_Name
@@ -162,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 750749199740800903, guid: 6e1835be2cd594841b39dda3a1db18bb, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 750749199740800920, guid: 6e1835be2cd594841b39dda3a1db18bb, type: 3}
       propertyPath: m_Name
@@ -1000,6 +1000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SBCloud
       objectReference: {fileID: 0}
+    - target: {fileID: 45334257884933399, guid: 600aa8bb293b33e4cbb78ca7d3dd23e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 356145281306551663, guid: 600aa8bb293b33e4cbb78ca7d3dd23e6, type: 3}
       propertyPath: scaleFactor
       value: 1.5
@@ -1074,6 +1078,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 427264ad525bffa4ab8844464e36a2a8, type: 3}
+    - target: {fileID: 2303162119288692190, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8069236397436080676, guid: 7671ceaf0ca713f418d907bddebe9843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.19

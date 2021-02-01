@@ -9,7 +9,12 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioLoud;
     public AudioSource audioSad;
 
-    // Start is called before the first frame update
+    public static AudioManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         Debug.Log(audioSoft.clip);
@@ -24,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.W))
         {
             Debug.Log("Focus soft");
@@ -40,7 +45,7 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Focus sad");
             StartAudioSad();
         }
-
+        */
     }
 
     public void FocusAudioSoft()

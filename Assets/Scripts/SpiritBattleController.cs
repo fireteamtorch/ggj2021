@@ -26,6 +26,8 @@ public class SpiritBattleController : MonoBehaviour
     public GameObject SB_FamilyPhoto;
     public GameObject SB_VideoGameConsole;
     public GameObject SB_Potato;
+    public GameObject SB_FinalBattle_NotReady;
+    public GameObject SB_FinalBattle_Ready;
     [Header("Current Battle Objects")]
     public GameObject spawnedSpiritBattle;
     public PlayerSpiritControl playerSpirit;
@@ -51,7 +53,8 @@ public class SpiritBattleController : MonoBehaviour
             Destroy(spawnedSpiritBattle);
             spawnedSpiritBattle = null;
         }
-        
+
+        AudioManager.instance.FocusAudioLoud();
         spawnedSpiritBattle = Instantiate(GetSpiritBattlePrefab(aBattleType), Vector3.zero, Quaternion.identity);
         spawnedSpiritBattle.transform.parent = spawnAnchor.transform;
         isSpiritBattleActive = true;
@@ -75,6 +78,11 @@ public class SpiritBattleController : MonoBehaviour
                 return SB_FamilyPhoto;
             case SpiritBattleType.VIDEO_GAME:
                 return SB_VideoGameConsole;
+
+            case SpiritBattleType.FINAL_BATTLE_NOTREADY:
+                return SB_FinalBattle_NotReady;
+            case SpiritBattleType.FINAL_BATTLE_READY:
+                return SB_FinalBattle_Ready;
 
             default:
                 return null;

@@ -25,6 +25,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         isAcceptingRoomButtons = true;
+        //AudioManager.instance.FocusAudioSoft();
     }
 
     public void ReportRoomButtonPressed(RoomButtonType aButtonType)
@@ -120,7 +121,7 @@ public class RoomController : MonoBehaviour
                 break;
 
             case ConvoType.FINAL_QUESTION_DIALOGUE:
-                DialogueController.Instance.StartConvo(ConvoType.ENDING_START);
+                SpecialStartConvo(ConvoType.ENDING_START);
                 break;
 
             case ConvoType.ENDING_START:
@@ -132,9 +133,22 @@ public class RoomController : MonoBehaviour
                 break;
         }
     }
+    
+    public void SpecialStartConvo(ConvoType aConvo)
+    {
+        StartCoroutine(DelayedConvo(aConvo, 0.25f));
+
+    }
+
+    public IEnumerator DelayedConvo(ConvoType aConvo, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DialogueController.Instance.StartConvo(aConvo);
+    }
 
     public void ReportSpiritBattleFinished(SpiritBattleType aBattleType, bool is_victory)
     {
+        AudioManager.instance.FocusAudioSoft();
         switch (aBattleType)
         {
             case SpiritBattleType.IDOL_CD:
@@ -172,7 +186,7 @@ public class RoomController : MonoBehaviour
                 {
                     Debug.Log("Win");
                     DialogueController.Instance.StartConvo(ConvoType.GAME_DIALOGUE);
-                    hasFinishedSB_FamilyPhoto = true;
+                    hasFinishedSB_VideoGameConsole = true;
                 }
                 else
                 {

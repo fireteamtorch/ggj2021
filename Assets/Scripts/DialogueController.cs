@@ -87,7 +87,7 @@ public enum DialogueSlide {
     GOODBYE,
     SHOCKED
 };
-public enum DialogueSpeaker { NARRATOR, PROTAGONIST, GHOST };
+public enum DialogueSpeaker { NARRATOR, PROTAGONIST, GHOST , YUU };
 
 public class DialogueController : MonoBehaviour
 {
@@ -167,7 +167,7 @@ public class DialogueController : MonoBehaviour
                 nextSlideID = (int)DialogueSlide.GAME_FAILURE;
                 break;
 
-            case ConvoType.FINAL_QUESTION_DIALOGUE:
+            case ConvoType.FINAL_QUESTION_DIALOGUE:                
                 nextSlideID = (int)DialogueSlide.FINAL_PUZZLE;
                 break;
             case ConvoType.FINAL_QUESTION_NOTREADY:
@@ -181,6 +181,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case ConvoType.ENDING_START:
+                AudioManager.instance.StartAudioSad();
                 nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST;
                 break;
         }
@@ -514,7 +515,8 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.ENDING_PROTAGONIST_4:
-                dialoguePlayer.ShowText("But I understood, I always did. Thank you for everything.");
+                SetSpeakerLabel(DialogueSpeaker.YUU);
+                dialoguePlayer.ShowText("But I understood, I always did. Thank you for everything... big sis.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -534,6 +536,10 @@ public class DialogueController : MonoBehaviour
 
             case DialogueSpeaker.PROTAGONIST:
                 speakerLabel.text = "Spirit Detective";
+                break;
+
+            case DialogueSpeaker.YUU:
+                speakerLabel.text = "Yuu, the Spirit Detective";
                 break;
 
             case DialogueSpeaker.NARRATOR:
