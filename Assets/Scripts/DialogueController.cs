@@ -192,7 +192,8 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case ConvoType.ENDING_START:
-                AudioManager.instance.StartAudioSad();
+                //AudioManager.instance.StartAudioSad();
+                AudioManager.instance.FocusAudioLoud();
                 nextSlideID = (int)DialogueSlide.ENDING_PROTAGONIST;
                 break;
         }

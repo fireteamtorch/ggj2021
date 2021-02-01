@@ -25,7 +25,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         isAcceptingRoomButtons = true;
-        //AudioManager.instance.FocusAudioSoft();
+        AudioManager.instance.FocusAudioSoft();
     }
 
     public void ReportRoomButtonPressed(RoomButtonType aButtonType)
