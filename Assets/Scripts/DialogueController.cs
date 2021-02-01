@@ -140,6 +140,11 @@ public class DialogueController : MonoBehaviour
 
     public void StartConvo(ConvoType aConvo)
     {
+        if (RoomController.Instance.isAcceptingRoomButtons == true)
+        {
+            RoomController.Instance.isAcceptingRoomButtons = false;
+        }
+
         activeConvo = aConvo;
         isTextBoxReadyForNewText = true;
         SetSpeakerSprite(SpeakerEmotion.SAD);
@@ -212,6 +217,10 @@ public class DialogueController : MonoBehaviour
         isTextBoxReadyForNewText = false;
         dialogueUIAnimator.SetTrigger("hide");
         hasUIAnimated = false;
+        if (RoomController.Instance.isAcceptingRoomButtons == false)
+        {
+            RoomController.Instance.isAcceptingRoomButtons = true;
+        }
         RoomController.Instance.ReportConvoFinished(activeConvo);
     }
 
@@ -338,7 +347,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.PHOTO_FAILURE:
-                dialoguePlayer.ShowText("Sorry...I don't want to talk about her.");
+                dialoguePlayer.ShowText("Sorry...I don't want to talk about them.");
                 nextSlideID = (int)DialogueSlide.NONE;
                 break;
 
@@ -348,7 +357,7 @@ public class DialogueController : MonoBehaviour
                 break;
 
             case DialogueSlide.GAME_DIALOGUE:
-                dialoguePlayer.ShowText("It's Potatoville. Brings back memories...");
+                dialoguePlayer.ShowText("It's my PlayBox 2. Brings back memories...");
                 nextSlideID = (int)DialogueSlide.GAME_DIALOGUE_2;
                 break;
 

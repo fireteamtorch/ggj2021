@@ -87,6 +87,7 @@ public class RoomController : MonoBehaviour
 
     public void ReportConvoFinished(ConvoType convo)
     {
+        isAcceptingRoomButtons = true;
         switch (convo)
         {
             case ConvoType.IDOL_DESCRIPTION:
@@ -176,7 +177,7 @@ public class RoomController : MonoBehaviour
                 }
                 else
                 {
-                    DialogueController.Instance.StartConvo(ConvoType.IDOL_FAILURE);
+                    DialogueController.Instance.StartConvo(ConvoType.PHOTO_FAILURE);
                 }
                 break;
 

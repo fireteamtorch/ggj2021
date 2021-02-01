@@ -53,7 +53,10 @@ public class SpiritBattleController : MonoBehaviour
             Destroy(spawnedSpiritBattle);
             spawnedSpiritBattle = null;
         }
-
+        if (RoomController.Instance.isAcceptingRoomButtons == true)
+        {
+            RoomController.Instance.isAcceptingRoomButtons = false;
+        }
         AudioManager.instance.FocusAudioLoud();
         spawnedSpiritBattle = Instantiate(GetSpiritBattlePrefab(aBattleType), Vector3.zero, Quaternion.identity);
         spawnedSpiritBattle.transform.parent = spawnAnchor.transform;
